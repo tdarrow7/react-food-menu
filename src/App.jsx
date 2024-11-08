@@ -1,9 +1,22 @@
+import { MealItems } from "./components/MealItems";
+import { Header } from "./components/Header";
+import { useContext } from "react";
+import { CartContext, CartContextProvider } from "./context/cartContext";
+import { UserProgressContextProvider } from "./context/UserProgressContext";
+import { Cart } from "./components/cart/Cart";
+import { Checkout } from "./components/Checkout";
+
 function App() {
   return (
     <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
+      <UserProgressContextProvider>
+        <CartContextProvider>
+          <Header />
+          <MealItems />
+          <Cart />
+          <Checkout />
+        </CartContextProvider>
+      </UserProgressContextProvider>
     </>
   );
 }
