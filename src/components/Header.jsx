@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import logoImg from "../assets/logo.jpg";
 import { Button } from "./ui/Button";
+import { CartContext } from "../context/cartContext";
+import { CartButton } from "./cart/CartButton";
+import { Cart } from "./cart/Cart";
 
 export const Header = () => {
   return (
@@ -9,9 +12,7 @@ export const Header = () => {
         <img src={logoImg} alt="Logo" />
         <h1>ReactFood</h1>
       </div>
-      <div className="cart-total">
-        <Button textOnly={true}>Cart (0)</Button>
-      </div>
+      <CartButton />
     </header>
   );
 };
